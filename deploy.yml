@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    run: phonepay
+  name: phonepay-deploy
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      run: phonepay
+  template:
+    metadata:
+      labels:
+        run: phonepay
+    spec:
+      containers:
+      - name: cont1
+        image: rahamshaik/phonepaymovies:v1
+        ports:
+        - containerPort: 80
+
